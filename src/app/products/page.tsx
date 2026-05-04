@@ -3,10 +3,18 @@ import { isDatabaseConfigured } from "@/lib/env";
 import { ProductGrid } from "@/components/product-grid";
 
 export const revalidate = 0;
+export const dynamic = "force-dynamic";
 
 export default async function ProductsPage() {
-  const products = await listProducts();
   const databaseConfigured = isDatabaseConfigured();
+
+  let products;
+  try {
+    products = await listProducts();
+  } catch (err) {
+    console.error("[ProductsPage] Failed to load products:", err);
+    throw err;
+  }
 
   return (
     <main className="min-h-screen bg-neutral-50">
