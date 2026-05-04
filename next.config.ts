@@ -1,8 +1,10 @@
-import type { NextConfig } from "next";
+import { defineConfig } from "prisma/config";
 
-const nextConfig: NextConfig = {
-  // Silence Prisma peer dep warnings
-  serverExternalPackages: ["@prisma/client", "prisma"],
-};
-
-export default nextConfig;
+export default defineConfig({
+  datasources: {
+    db: {
+      url: process.env.DATABASE_URL!,
+      directUrl: process.env.DIRECT_URL,
+    },
+  },
+});
