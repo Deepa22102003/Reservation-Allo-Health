@@ -1,10 +1,5 @@
-import { defineConfig } from "prisma/config";
+import type { NextConfig } from "next";
 
-export default defineConfig({
-  datasources: {
-    db: {
-      url: process.env.DATABASE_URL!,
-      directUrl: process.env.DIRECT_URL,
-    },
-  },
-});
+const nextConfig: NextConfig = {};
+
+export default nextConfig;
