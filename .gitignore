@@ -7,8 +7,7 @@ node_modules/
 .next/
 out/
 dist/
-
-{src/
+tsconfig.tsbuildinfo
 
 # Environment variables — NEVER commit real secrets
 .env
